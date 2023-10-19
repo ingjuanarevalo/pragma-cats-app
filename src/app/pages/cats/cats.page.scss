@@ -1,0 +1,44 @@
+:host {
+  .no-cats,
+  .loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  ion-card {
+    margin-bottom: 1rem;
+    .image {
+      width: 100%;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .no-image {
+        text-align: center;
+      }
+    }
+    ion-card-header {
+      ion-card-title {
+        font-size: 18px;
+      }
+    }
+    ion-card-content {
+      ion-list {
+        ion-item {
+          --padding-start: 0;
+          ion-label {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

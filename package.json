@@ -6,10 +6,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build": "ionic build --configuration development",
+    "build:android": "npm run build && npx cap copy && npx cap open android",
+    "build:ios": "npm run build && npx cap copy && npx cap open ios",
+    "build:prod": "ionic build --configuration production",
+    "build:prod:android": "npm run build:prod && npx cap copy && npx cap open android",
+    "build:prod:ios": "npm run build:prod && npx cap copy && npx cap open ios"
   },
   "private": true,
   "dependencies": {
@@ -21,9 +26,11 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@capacitor/android": "^5.5.0",
     "@capacitor/app": "5.0.6",
     "@capacitor/core": "5.5.0",
     "@capacitor/haptics": "5.0.6",
+    "@capacitor/ios": "^5.5.0",
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",

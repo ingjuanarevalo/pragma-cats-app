@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Catbreeds</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isLoadingCats" class="loading">
+    <ion-spinner color="primary" name="bubbles"></ion-spinner>
+  </div>
+  <div *ngIf="!isLoadingCats && !cats.length" class="no-cats">
+    No hay gatos disponibles
+  </div>
+  <div *ngIf="!isLoadingCats && cats.length" class="cats">
+    <ion-card *ngFor="let cat of cats">
+      <div class="image">
+        <div *ngIf="!cat.imageUrl" class="no-image">
+          No hay imagen disponible :(
+        </div>
+        <img *ngIf="cat.imageUrl" [src]="cat.imageUrl" [alt]="cat.breedName" />
+      </div>
+      <ion-card-header>
+        <ion-card-title color="primary">
+          {{cat.breedName}}
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item lines="none">
+            <ion-label>
+              <b>País de origen:</b> {{cat.origin}}
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              <b>Inteligencia:</b> {{cat.intelligence}}
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              <b>Nivel de afecto:</b> {{cat.affectionLevel}}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
